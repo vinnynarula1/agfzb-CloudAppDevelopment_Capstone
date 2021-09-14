@@ -67,17 +67,17 @@ def registration_request(request):
         return render(request, 'djangoapp/registration.html', context)
     elif request.method =="POST":
         username= request.POST['username']
-        firsname= request.POST['firstname']
-        lastname = request.POST['lastname']
+        first_name= request.POST['firstname']
+        last_name = request.POST['lastname']
         password= request.POST['psw']
         user_exit = False
         try:
             User.objects.get(username=username)
             user_exit = True
         except:
-            logger.debug("{} is new user".format(username))
+            logger.error("New user")
         if not user_exit:
-            user = User.objects.create_user(username=username, password=password, lastname=lastname, firsname=firsname)
+            user = User.objects.create_user(username=username, first_name = first_name, last_name = last_name, password=password )
             login(request, user)
             return redirect("djangoapp:index")
         else:
