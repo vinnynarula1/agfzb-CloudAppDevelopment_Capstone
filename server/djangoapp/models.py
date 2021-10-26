@@ -86,4 +86,4 @@ class DealerReview:
         # Dealer zip
         self.sentiment  = sentiment
     def __str__(self):
-        return "Dealer Name: " +self.full_name
+        return "Dealership: " + self.dealership
