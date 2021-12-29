@@ -11,7 +11,7 @@ def get_request(url, **kwargs):
     print(kwargs)
     print("Get from {} ".format(url))
     try:
-        response = requests.get(url, headers={'Content-Type' = 'application/json'}, params=kwargs)
+        response = requests.get(url, headers={'Content-Type' : 'application/json'}, params=kwargs)
     except:
         print("network exception error")
     status_code = response.status_code
@@ -34,8 +34,7 @@ def get_dealers_from_cf(url, **kwargs):
         dealers = json_result["rows"]
         for dealer in dealers:
             dealer_doc = dealer["doc"]
-            dealer_obj = CarDealer(address=dealer_doc["address"], city = dealer_doc["city"], full_name = dealer_doc["full_name"], id = dealer_doc["id"]
-            lat=dealer_doc["lat"], long=dealer_doc["long"], short_name= dealer_doc["short_name"], st=dealer_doc["st"], zip= dealer_doc["zip"])
+            dealer_obj = CarDealer(address=dealer_doc["address"], city = dealer_doc["city"], full_name = dealer_doc["full_name"], id = dealer_doc["id"],lat=dealer_doc["lat"], long=dealer_doc["long"], short_name= dealer_doc["short_name"], st=dealer_doc["st"], zip= dealer_doc["zip"])
             result.append(dealer_obj)
     return results
 
