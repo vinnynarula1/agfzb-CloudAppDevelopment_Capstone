@@ -11,7 +11,10 @@ def get_request(url, **kwargs):
     print(kwargs)
     print("Get from {} ".format(url))
     try:
-        response = requests.get(url, headers={'Content-Type' : 'application/json'}, params=kwargs)
+        if api_key:
+            response = requests.get(url, headers={'Content-Type': 'application/json'}, params=kwargs, auth=HTTPBasicAuth('apikey', api_key))
+        else:
+            response = requests.get(url, headers={'Content-Type': 'application/json'}, params=kwargs)
     except:
         print("network exception error")
     status_code = response.status_code
@@ -54,9 +57,22 @@ def get_dealer_reviews_from_cf(url, dealerId):
 
 
 # Create an `analyze_review_sentiments` method to call Watson NLU and analyze text
-# def analyze_review_sentiments(text):
+
+def analyze_review_sentiments(text):
 # - Call get_request() with specified arguments
 # - Get the returned sentiment label such as Positive or Negative
-
+    result = "Not checked"
+    print(text)
+    try:
+        json_result = get_request(url="https://api.eu-gb.natural-language-understanding.watson.cloud.ibm.com/instances/48b966aa-b98c-44f7-a78f-78e8e01e8b88/v1/analyze",
+                        api_key="rw0nKSLh7V9Wvlff_jYmMTmzgS1rjzVIL-OkJj1BrDpC",
+                        version="2021-03-25",
+                        features="sentiment",
+                        language="en",
+                        text=text)
+        result = json_result["sentiment"]["document"]["label"]
+        print(result)
+    finally:
+        return result
 
 
