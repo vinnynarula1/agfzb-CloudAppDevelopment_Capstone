@@ -85,6 +85,8 @@ class DealerReview:
         self.purchase_date = purchase_date
         # Dealer review
         self.review = review
+        # Dealer ID
+        self.id = id
         # Dealer zip
         self.sentiment  = sentiment
     def __str__(self):

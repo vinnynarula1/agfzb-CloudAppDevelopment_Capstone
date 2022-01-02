@@ -76,7 +76,7 @@ def registration_request(request):
 def get_dealerships(request):
     context = {}
     if request.method == "GET":
-        url = "https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/bc6e01490ee86947bcd25cf80816ab3bff25e27c9e60f4fcb2bb60a8c46663f4/api/dealership"
+        url = "https://4a9f7d39.us-south.apigw.appdomain.cloud/api/dealership"
 
         dealerships = get_dealers_from_cf(url)
         context['dealerships'] = dealerships
@@ -84,7 +84,7 @@ def get_dealerships(request):
 
 def get_dealer_details(request, dealer_id):
     context={}
-    url = "https://service.eu.apiconnect.ibmcloud.com/gws/apigateway/api/8250ba8602120a229d380bfa5ca46392fb0731b5f751bb87a2a87530555b43ad/djangoapp/api/review"
+    url = "https://4a9f7d39.us-south.apigw.appdomain.cloud/api/review"
     dealer_details = get_dealer_reviews_from_cf(url,dealer_id)
     context["dealer_id"]=dealer_id
     context["reviews"]=dealer_details
