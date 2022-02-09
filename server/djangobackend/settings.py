@@ -27,7 +27,7 @@ DEBUG = True
 
 APPEND_SLASH = True
 
-ALLOWED_HOSTS = ["hione.us-south.cf.appdomain.cloud", "localhost"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
