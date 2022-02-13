@@ -9,8 +9,8 @@ import time
  
 
 def analyze_review_sentiments(text):
-    url = "https://api.us-south.natural-language-understanding.watson.cloud.ibm.com/instances/33ff96b2-e89e-4491-87c8-fa17d7a0d035"
-    api_key = "ZGY4CrSXyOfZxvw7I7KddddyKFlyru8XkKxc3yFL4Oat"
+    url = "https://api.us-south.natural-language-understanding.watson.cloud.ibm.com/instances/54366fa1-39bf-4510-8178-dd692d661564"
+    api_key = "X0DEk4Cd9YuKspGz2SUqxHXCfA03_PWWcnXM7euURhyw"
     authenticator = IAMAuthenticator(api_key)
     natural_language_understanding = NaturalLanguageUnderstandingV1(version='2021-08-01',authenticator=authenticator)
     natural_language_understanding.set_service_url(url)
